@@ -55,6 +55,3 @@ git branch -m master main
 git branch -a
 ```
 ### Fixing `fatal: refusing to merge unrelated histories`
-- unstage all files in last commit `git reset`
-- stash unsaved files `git stash`
-- add the changes to your current working copy of the code `git stash apply`
