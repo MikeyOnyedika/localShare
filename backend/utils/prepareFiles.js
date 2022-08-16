@@ -1,5 +1,7 @@
 import fs from 'fs'
 import path from 'path'
+import dotenv from 'dotenv'
+dotenv.config()
 
 // ignore these folders. don't bother reading their content
 const ignoreFolders = ['node_modules', '.git', '$RECYCLE.BIN']
@@ -84,7 +86,7 @@ function getFiles(fileTypes) {
     return loopFileTypes(fileTypes)
 }
 
-// loops through each file type 
+// loop through each file type 
 function loopFileTypes(fileTypes) {
     const files = {}
 
@@ -106,7 +108,8 @@ function getFilesForAllExtOfType(exts, fileType) {
     const files = []
 
     for (let ext of exts) {
-        const matchingFiles = getMatchingFiles('/media', ext, fileType)
+        // matchingFiles will be undefined if you try running this module as a stand alone program (maybe for testing purposes) because process.env.START_PATH requires that the server be running before the settings from .env file can be properly loaded by dotenv.config()
+        const matchingFiles = getMatchingFiles(process.env.START_PATH, ext, fileType)
         files.push(...matchingFiles)
     }
     return files
