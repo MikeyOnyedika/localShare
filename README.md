@@ -55,3 +55,4 @@ git branch -m master main
 git branch -a
 ```
 ### Fixing `fatal: refusing to merge unrelated histories`
+- `git merge --strategy-option ours`
