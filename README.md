@@ -1,4 +1,7 @@
-# Working with mongodb
+# LocalShare 
+Share files between devices connected on the same wifi network from your browser.
+
+## Working with mongodb
 This project uses mongodb version `4.4.8`, newer versions had problems running on Ubuntu 20.04
 Mongodb is a NoSQL database. Data is organized in Collections and Documents analogous to Tables and Rows in SQL databases.
 **Mongoose** is a ODM (Object Data Modeling) library for MongoDB. This means that mongoose maps Collections and Docuements in the database into plain javascript object which we can easily work with. Mongoose also helps define and regulate structure for the kind of data we pass into the Collection by defining a schema and using a model to access the Collection.
@@ -54,5 +57,3 @@ git branch -m master main
 # list all git branches both local and remote to confirm the change
 git branch -a
 ```
-### Fixing `fatal: refusing to merge unrelated histories`
-- `git merge --strategy-option ours`
