@@ -1,0 +1,26 @@
+.upload-form {
+    display: flex;
+    justify-content: center;
+    gap: var(--gap);
+}
+
+.upload-btn > .icon{
+    width: 2rem;
+    padding: calc(var(--padding-inline) * 0.3);
+    background-color: var(--accent-clr);
+}
+
+.upload-btn > .icon:hover{
+    outline-color: var(--accent-clr);
+}
+
+.upload-btn {
+    background-color: var(--secondary-clr);
+    font-weight: var(--fw-light);
+    display: flex;
+    align-items: center;
+}
+
+input[type="file"] {
+    display: none;
+}

@@ -1,0 +1,82 @@
+.App {
+    background-color: aqua;
+    height: 100%;
+}
+
+:root {
+    /* Typography */
+    --ff: 'Open Sans', sans-serif;
+    --fw-light: 400;
+    --fw-heavy: 700;
+    --fs-regular: 1rem;
+    --fs-lg: calc(var(--fs-regular) * 2);
+    --fs-x-lg: calc(var(--fs-regular) * 2.5);
+
+
+    /* Colors */
+    --black-clr: #000000;
+    --primary-clr: #FFFFFF;
+    --secondary-clr: #FFE694;
+    --accent-clr: #43655A;
+
+    /* Spacing */
+    --padding-inline: 1rem;
+    --padding-block: 0.8rem;
+    --gap: 1rem;
+    --border-radius: 5px;
+    --icon-size: 1.5rem;
+
+
+    /* box shadown */
+    --bshadow-normal: 2px 1px 5px rgba(0, 0, 0, 0.43);
+    --bshadow-active: 3px 2px 10px 3px rgba(0, 0, 0, 0.43);
+
+}
+
+header {
+    width: 100%;
+    background-color: var(--secondary-clr);
+    display: flex;
+    justify-content: center;
+    box-shadow: var(--bshadow-normal);
+
+}
+
+main {
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+    background-color: var(--primary-clr);
+    height: inherit;
+    width: inherit;
+}
+
+/* any immediate child of main */
+main>* {
+    width: inherit;
+}
+
+.btn {
+    padding-inline: calc(var(--padding-inline) * 0.5);
+    padding-block: calc(var(--padding-block) * 0.5);
+    border-radius: var(--border-radius);
+    border: none;
+    outline: 0px solid var(--accent-clr);
+}
+
+.btn:hover {
+    outline-width: 3px;
+    cursor: pointer;
+}
+
+.shadow{
+    box-shadow: var(--bshadow-normal);
+}
+
+@media screen and (max-width: 400px) {
+    :root{
+        --fs-regular: 0.8rem;
+        --padding-inline: 0.8rem;
+        --padding-block: 0.7rem;
+    }
+}

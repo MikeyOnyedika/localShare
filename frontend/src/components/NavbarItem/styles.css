@@ -1,0 +1,33 @@
+.navitem-wrapper {
+    display: flex;
+    list-style-type: none;
+}
+
+.navitem {
+    text-decoration: none;
+    color: var(--accent-clr);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: calc(var(--gap) * 0.3);
+    padding-inline: calc(var(--padding-inline) * 0.5);
+    padding-block: calc(var(--padding-block) * 0.5);
+    border-radius: var(--border-radius);
+}
+
+.nav-icon {
+    width: var(--icon-size);
+    height: var(--icon-size);
+}
+
+
+.active {
+    font-weight: var(--fw-heavy);
+    box-shadow: var(--bshadow-active);
+}
+
+@media screen and (max-width: 590px) {
+    .navitem-name{
+        display: none;
+    }
+}

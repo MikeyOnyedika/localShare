@@ -1,5 +1,7 @@
 # LocalShare 
 Share files between devices connected on the same wifi network from your browser.
+## Image on Desktop
+![](./frontend/src/assets/images/desktop1.png)
 
 ## Notes
 ### Rename a Git branch

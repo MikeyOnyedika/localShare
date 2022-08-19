@@ -1,0 +1,13 @@
+.index-wrapper{
+   padding-inline: calc(var(--padding-inline)  * 2);
+   padding-block: calc(var(--padding-block)  * 2);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.index-text{
+    font-size: var(--fs-x-lg);
+    color: var(--accent-clr);
+    text-align: center;
+}
