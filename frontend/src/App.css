@@ -48,7 +48,7 @@ main {
     align-items: stretch;
     background-color: var(--primary-clr);
     height: inherit;
-    width: inherit;
+    overflow-y: scroll;
 }
 
 /* any immediate child of main */

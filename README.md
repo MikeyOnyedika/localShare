@@ -15,3 +15,6 @@ git branch -m master main
 # list all git branches both local and remote to confirm the change
 git branch -a
 ```
+
+### Using multer for file upload
+
