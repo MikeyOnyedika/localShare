@@ -9,7 +9,9 @@ const File = (props) => {
       <td className="td">{file.originalName}</td>
       <td>{file.size}</td>
       <td className='download-btn-wrapper'>
-        <img src={DownloadIcon} alt="" className="download-btn" />
+        <a href={props.downloadLink}>
+          <img src={DownloadIcon} alt="" className="download-btn" />
+        </a>
       </td>
     </tr>
   )

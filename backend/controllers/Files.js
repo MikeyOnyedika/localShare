@@ -1,3 +1,4 @@
+import mongoose from 'mongoose'
 import File from '../models/File.js'
 import getAllFilesOnServer from '../utils/prepareFiles.js'
 
@@ -10,13 +11,20 @@ const del = await File.deleteMany({})
 // console.log(del)
 
 // write all the files details to the database
-const videos = await  File.insertMany(video)
+const videos = await File.insertMany(video)
 const audios = await File.insertMany(audio)
 const documents = await File.insertMany(document)
 
 // get all media and text files
-export async function getAllFiles(req, res){
+export async function getAllFiles(req, res) {
     const files = await File.find({})
     res.json(files)
 }
 
+export async function downloadFile(req, res) {
+    const id = mongoose.Types.ObjectId(req.fileId)
+    console.log(id)
+    const file = await File.findById(id)
+    console.log(file)
+    res.download(file.path, file.originalName)
+}

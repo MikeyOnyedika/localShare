@@ -54,7 +54,7 @@ const _CategoryTemplate = (props) => {
           {!isLoaded && "Loading ..."}
           {isLoaded &&
             <tbody>
-              {(files.map(file => <File file={file} key={file._id} />))}
+              {files.map(file => <File file={file} key={file._id} downloadLink={`${baseUrl}/download/${file._id}`} />)}
             </tbody>
           }
         </table>

@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import os from 'os';
-// import FileRoutes from './routes/FileRoutes.js';
+import FileDownloadRoute from './routes/FileDownloadRoute.js';
 import AudioFileRoutes from './routes/AudioFileRoutes.js'
 import DocumentFileRoutes from './routes/DocumentFileRoutes.js'
 import VideoFileRoutes from './routes/VideoFileRoutes.js'
@@ -21,7 +21,7 @@ const storage = multer.diskStorage({
     const fileType = file.mimetype;
     console.log(fileType)
     let pathToSaveFile = ''
-
+    
     if (fileType.includes("video")) {
       // its a video
       pathToSaveFile = process.env.VIDEO_STORAGE_PATH;
@@ -49,17 +49,23 @@ app.post('/api/v1/upload', uploadStorage.single('file'), (req, res) => {
   // res.redirect(`http://${IP}/`)
 })
 
+app.use('/api/v1/download/:id', setIdParam, FileDownloadRoute)
 app.use('/api/v1/document', DocumentFileRoutes);
 app.use('/api/v1/video', VideoFileRoutes);
 app.use('/api/v1/audio', AudioFileRoutes);
+
+function setIdParam(req, res, next){
+  req.fileId = req.params.id
+  next()
+}
 
 
 
 app.listen(process.env.PORT, () => {
   console.log(
     `Server is ready! Running on port: ${process.env.PORT}. Server IP: ${IP} `
-  );
-
-  const content = `const url = "http://${IP}:${process.env.PORT}/api/v1"\nexport default url`
-  fs.writeFileSync("../frontend/src/utils/url.js", content)
+    );
+    
+    const content = `const url = "http://${IP}:${process.env.PORT}/api/v1"\nexport default url`
+    fs.writeFileSync("../frontend/src/utils/url.js", content)
 });
