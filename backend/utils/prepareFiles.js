@@ -46,13 +46,14 @@ function getMatchingFiles(startPath, filter, fileType) {
         // check for matching files inside the directory
         for (let i = 0; i < content.length; i++) {
             const filename = path.join(startPath, content[i]);
+            // console.log(filename)
             const stat = fs.lstatSync(filename);
             if (stat.isDirectory()) {
                 const files = _getMatchingFiles(filename, filter, fileType);      //recurse
                 matchingFiles.concat(files)
             } else if (filename.endsWith(filter)) {
-                const pathAsArray = filename.split('/')
-                const originalName = pathAsArray[pathAsArray.length - 1];
+                const originalName = path.basename(filename);
+                // console.log(originalName)
                 // calcuate the (approximate) size of the file
                 let size = Math.round(stat.size * 9.537e-7);
 
